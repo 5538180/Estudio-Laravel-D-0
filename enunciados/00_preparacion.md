@@ -4,19 +4,11 @@
 
 Parte de este repositorio. Clonalo en tu maquina de trabajo y crea una rama por cada ejercicio.
 
-Usa el mismo Docker/Laradock que usas para el resto de proyectos Laravel del curso. No ejecutes Composer con el PHP 8.4 del host.
+El proyecto esta actualizado para instalar dependencias directamente con PHP 8.4.
 
-Desde `~/Documentos/laravel/laradock`:
-
-```bash
-docker compose up -d nginx mysql workspace
-docker compose exec workspace bash
-```
-
-Dentro del contenedor:
+Antes de empezar:
 
 ```bash
-cd /var/www/Estudio-Laravel-D-0
 cp .env.example .env
 composer install
 npm install
@@ -24,7 +16,7 @@ php artisan key:generate
 php artisan migrate:fresh --seed
 ```
 
-Si tu instalacion usa `docker-compose`, usa `docker-compose up -d ...` y `docker-compose exec ...`.
+Tambien puedes usar Docker/Laradock si quieres trabajar igual que en los otros proyectos.
 
 Si usas SQLite, configura el fichero `.env` segun el metodo visto en clase. Si usas MySQL/MariaDB, crea la base de datos y revisa `DB_DATABASE`, `DB_USERNAME` y `DB_PASSWORD`.
 

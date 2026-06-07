@@ -22,7 +22,7 @@ La vision final del proyecto esta en [docs/proyecto_final_mermaid.md](docs/proye
 
 El contrato final de tablas, endpoints y patrones esta en [docs/contrato_final.md](docs/contrato_final.md).
 
-El arranque con el entorno usado en clase esta en [docs/entorno_docker_laradock.md](docs/entorno_docker_laradock.md).
+La guia de entorno esta en [docs/entorno_docker_laradock.md](docs/entorno_docker_laradock.md).
 
 Plantillas utiles:
 
@@ -40,19 +40,11 @@ Plantillas utiles:
 
 ## Arranque habitual
 
-Usa Docker/Laradock como en los demas proyectos del curso. No ejecutes `composer install` con el PHP 8.4 del sistema de la maquina virtual.
+El proyecto esta actualizado para instalar dependencias directamente con PHP 8.4.
 
-Desde `~/Documentos/laravel/laradock`:
-
-```bash
-docker compose up -d nginx mysql workspace
-docker compose exec workspace bash
-```
-
-Dentro del contenedor:
+Desde la carpeta del proyecto:
 
 ```bash
-cd /var/www/Estudio-Laravel-D-0
 cp .env.example .env
 composer install
 npm install
@@ -67,4 +59,4 @@ Para el frontend:
 npm run dev
 ```
 
-Si tu instalacion usa `docker-compose`, cambia `docker compose` por `docker-compose`.
+Tambien puedes usar Docker/Laradock si quieres trabajar como en los otros proyectos del curso.

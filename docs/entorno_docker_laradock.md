@@ -1,10 +1,29 @@
-# Entorno Docker/Laradock
+# Entorno de trabajo
 
-Este repositorio debe ejecutarse con el mismo entorno que los proyectos Laravel usados durante el curso.
+El repositorio esta actualizado para poder clonarse y ejecutar `composer install` directamente con PHP 8.4.
 
-No uses el PHP del sistema de la maquina virtual si es PHP 8.4. El proyecto base es Laravel 10 con dependencias del curso y el `composer.lock` esta pensado para el entorno Docker/Laradock habitual, no para actualizar paquetes a PHP 8.4.
+Docker/Laradock sigue siendo una opcion si quieres trabajar igual que en otros proyectos del curso, pero ya no es obligatorio para instalar dependencias.
 
-## Arranque recomendado
+## Arranque directo en la maquina virtual
+
+Desde la carpeta del proyecto:
+
+```bash
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate:fresh --seed
+php artisan serve
+```
+
+Para el frontend:
+
+```bash
+npm run dev
+```
+
+## Arranque con Docker/Laradock
 
 Desde la maquina virtual:
 
@@ -32,39 +51,15 @@ php artisan key:generate
 php artisan migrate:fresh --seed
 ```
 
-Para arrancar Laravel:
-
-```bash
-php artisan serve --host=0.0.0.0 --port=8000
-```
-
-Para el frontend:
-
-```bash
-npm run dev -- --host=0.0.0.0
-```
-
-## Si Composer falla en la VM
-
-Si ves un error parecido a:
-
-```text
-your php version (8.4.x) does not satisfy that requirement
-```
-
-significa que estas ejecutando `composer install` fuera del contenedor.
-
-La solucion correcta para esta practica es entrar al contenedor `workspace` y ejecutar Composer alli.
-
 ## Versiones esperadas
 
-El proyecto mantiene la pila del curso:
+El proyecto mantiene la base del curso, pero con dependencias compatibles con PHP 8.4:
 
 ```text
 Laravel 10
 Sanctum 3
-Inertia Laravel 0.6
-PHP del contenedor Docker/Laradock del curso
+Inertia Laravel 1
+PHP 8.4 compatible
 ```
 
-No ejecutes `composer update` salvo que el ejercicio lo pida expresamente. La practica debe partir del mismo estilo y dependencias que los demas proyectos.
+No ejecutes `composer update` salvo que quieras actualizar dependencias de forma consciente. Para practicar los ejercicios basta con `composer install`.
